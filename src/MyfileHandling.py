@@ -330,7 +330,7 @@ def writeFinalIndex(data, countFinalFile, pathOfFolder,offsetSize):
 ## -----------------------------------------------------------------------------------------------------------------------
 ## 								CREATING SECONDARY INDEXES
 def make_secondary_index():
-	fileCount = 2
+	fileCount = 856
 	fields = ['Body', 'Info', 'Title', 'Category', 'References', 'Link'] 
 	secondary_index = defaultdict(dict)
 	data = ''
@@ -351,9 +351,9 @@ def make_secondary_index():
 		data += '\n'
 	pprint.pprint(secondary_index)
 	data = re.sub(' +', ' ', data)
-	with open('./inverted_indexes/secondary_index.txt','w') as f:
-		f.write(data)
-	with open('./inverted_indexes/secondary_index1.txt','wb') as fp:
+	#with open('./inverted_indexes/secondary_index.txt','w') as f:
+	#	f.write(data)
+	with open('./inverted_indexes/secondary_index.txt','wb') as fp:
 		pickle.dump(secondary_index, fp)
 
 ## -----------------------------------------------------------------------------------------------------------------------
