@@ -1,9 +1,9 @@
 ## Wikipedia Search Engine
 
-#### Project Objective
+### Project Objective
 In this project, primary task is to build a scalable and efficient search engine on Wikipedia pages. This constitutes two stages - inverted index creation and query search mechanism, where the scope of performance in the second stage relies heavily on the quality of index built in its preceding stage. Throughout the project, efforts should be made to build a system optimized for search time, search efficiency (i.e. the quality of results), indexing time and index size. We have used Wikipedia dumps of size 80GB in XML format, which is parsed to get Wikipedia pages.
 
-#### Basic Stages
+### Basic Stages
 - XML Parsing (SAX parser)
 - Tokenization
 - Case folding
@@ -12,7 +12,7 @@ In this project, primary task is to build a scalable and efficient search engine
 - Posting list / inverted index creation
 - Optimization
 
-#### Features
+### Features
  **Support for plain & field queries**
   Ensured support for both - plain and field queries. The expected fields from a Wikipedia page to be supported along with their respective identifiers used in query are as shown below in Table 1.
 | FIELD | Title | Info | Category | Body | References | External Links |
@@ -24,13 +24,13 @@ In this project, primary task is to build a scalable and efficient search engine
 in Infobox and ”Football” in Category
  **Index size** is around one-fourth of the original dump size 
 
-#### Index Creation
+### Index Creation
 For creating indexes use the following command : 
 ```
 python3 indexer.py ../enwiki-20210720-pages-articles-multistream.xml ./inverted_indexes
 ```
 
-#### Query Search
+### Query Search
 For each query string, it returns the top 10 results, each result consisting of the document id and title of the page.  The queries will be provided in a queries.txt file. It can be run as: 
 ```
 python search.py ./inverted_indexes
@@ -64,13 +64,13 @@ In this file, for each query, you will have the results printed on 10 lines, eac
 (10 lines of retrieved document id - title pairs)
 2
 ~~~
-#### Challenges
+### Challenges
 - Difficult to process large data of 80 GB
 - Can not store word & its posting list into a main memory, So Used K-way Merge sort
 - Can not Load full final index into main memory, So Bild Secondary Index on top of Primary Index (Posting List)
 
 
-##### Download links to Wikipedia dumps of languages for the project
+### Download links to Wikipedia dumps of languages for the project
 
 | Language | Link |
 | ---- | ---- |
