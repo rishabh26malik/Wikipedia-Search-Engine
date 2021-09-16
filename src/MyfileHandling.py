@@ -444,9 +444,9 @@ def mergeFiles(pathOfFolder, countFile, path_to_inverted_index, total_tokens):
     print(total_lines_file[:countFile])
     print( count_of_file[:countFile] == total_lines_file[:countFile] )
 	
-    #make_secondary_index()
-    #tokens_in_inverted_index = int(subprocess.check_output('cat ' + path_to_inverted_index + '/vocabularyList.txt' + ' | wc -l', shell=True, text=True).replace('\n',''))
-    #write_token_count(total_tokens, tokens_in_inverted_index, path_to_inverted_index)
+    make_secondary_index()
+    tokens_in_inverted_index = int(subprocess.check_output('cat ' + path_to_inverted_index + '/vocabularyList.txt' + ' | wc -l', shell=True, text=True).replace('\n',''))
+    write_token_count(total_tokens, tokens_in_inverted_index, path_to_inverted_index)
 
 
 
