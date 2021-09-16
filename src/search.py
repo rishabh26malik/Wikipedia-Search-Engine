@@ -420,13 +420,15 @@ class WikiSearch():
 		jsonData = self.getOutputDOC_Ids(self.queryTokens)
 		#print("results ",rankedResults)
 		if ( len(rankedResults) == 0 ):
-			print("NOT FOUND")
+			#print("NOT FOUND")
+			with open("./queries_op.txt", 'a') as out:
+				out.write("NOT FOUND\n")
 			return
 		titleResults = self.getTitles(rankedResults)
 		output_results = ""
 		for docid, docTitle in zip(rankedResults, titleResults):
-			output_results += docTitle + '\n'
-		with open("./queries_op.txt", 'w') as out:
+			output_results += docTitle
+		with open("./queries_op.txt", 'a') as out:
 			out.write(output_results)
 		#for x in titleResults:
 		#    print(x)	
@@ -439,11 +441,14 @@ if __name__ == "__main__":
 	search = WikiSearch(sys.argv[1])
 	search.loadSecondaryindex()
 	with open("./queries.txt") as file:
-		query = file.readlines()[0][:-1]
-	query = query.lower()
-	start = timeit.default_timer()
-	query = query.lower()
-	search.resolveQuery(query)
-	stop = timeit.default_timer()
-	total_seconds = math.ceil(stop - start)
-	print("Total time taken = ",str(datetime.timedelta(seconds=total_seconds)))
+		queries = file.readlines()
+	for query in queries:
+		start = timeit.default_timer()
+		query = query.lower()
+		query = query.strip()
+		search.resolveQuery(query)
+		stop = timeit.default_timer()
+		total_seconds = math.ceil(stop - start)
+		with open("./queries_op.txt", 'a') as out:
+			out.write(str(stop - start)+'\n\n')
+		#print("Total time taken = ",str(datetime.timedelta(seconds=total_seconds)))
