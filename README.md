@@ -1,7 +1,7 @@
 ## Wikipedia Search Engine
 
 ### Project Objective
-In this project, primary task is to build a scalable and efficient search engine on Wikipedia pages. This constitutes two stages - inverted index creation and query search mechanism, where the scope of performance in the second stage relies heavily on the quality of index built in its preceding stage. Throughout the project, efforts should be made to build a system optimized for search time, search efficiency (i.e. the quality of results), indexing time and index size. We have used Wikipedia dumps of size 80GB in XML format, which is parsed to get Wikipedia pages.
+In this project, primary task is to build a scalable and efficient search engine on Wikipedia pages. This constitutes two stages - inverted index creation and query search mechanism, where the scope of performance in the second stage relies heavily on the quality of index built in its preceding stage. Throughout the project, efforts have been made to build a system optimized for search time, search efficiency (i.e. the quality of results), indexing time and index size. We have used Wikipedia dumps of size 80GB in XML format, which is parsed to get Wikipedia pages.
 
 ### Basic Stages
 - XML Parsing (SAX parser)
